@@ -49,7 +49,7 @@ export default function Home() {
             ) : (
               <>
                 <Link to="/career" className="btn btn-primary">
-                  Apply for Jobs
+                  Go to Career
                 </Link>
                 <button
                   className="btn btn-outline"

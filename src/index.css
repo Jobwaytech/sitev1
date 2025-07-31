@@ -37,6 +37,7 @@ body {
   text-align: center;
   position: relative;
   overflow: hidden;
+  
 }
 
 /* Optional: Add light sparkles or blobs */
@@ -101,6 +102,10 @@ body {
   transform: scale(1.05);
 }
 
+.hero-buttons {
+  position: relative;
+  z-index: 10;
+}
 /* Gradient animation */
 @keyframes gradientMove {
   0% { background-position: 0% 50%; }
@@ -124,6 +129,21 @@ body {
 @media (max-width: 768px) {
   .hero-section h1 {
     font-size: 2rem;
+  }
+  .hero-section {
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
   }
 
   .hero-section p {
