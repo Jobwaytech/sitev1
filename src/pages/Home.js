@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "../index.css";
-import '../css/MainAdmin.css';
 
 export default function Home() {
   const token = localStorage.getItem("token");
@@ -39,20 +38,20 @@ export default function Home() {
           <div className="hero-buttons">
             {!token ? (
               <>
-                <Link to="/auth" className="btn btn-primary">
+                <Link to="/auth" className="btn-btn-primary">
                   Get Started
                 </Link>
-                <Link to="/auth" className="btn btn-outline">
+                <Link to="/auth" className="btn-btn-outline">
                   Login
                 </Link>
               </>
             ) : (
               <>
-                <Link to="/career" className="btn btn-primary">
+                <Link to="/career" className="btn-btn-primary">
                   Go to Career
                 </Link>
                 <button
-                  className="btn btn-outline"
+                  className="btn-btn-outline"
                   onClick={() => {
                     localStorage.removeItem("token");
                     localStorage.removeItem("role");

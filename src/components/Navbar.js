@@ -10,6 +10,11 @@ export default function Navbar() {
 
   const [activeSection, setActiveSection] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
+  const fiveHours = 5 * 60 * 60 * 1000;
+  const logoutTime = new Date().getTime() + fiveHours;
+
+  localStorage.setItem("logoutTime", logoutTime);
+  
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,11 +36,24 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const logoutTime = localStorage.getItem("logoutTime");
+      if (logoutTime && new Date().getTime() > parseInt(logoutTime)) {
+        localStorage.clear();
+        navigate("/");
+      }
+    }, 60000); // check every 1 minute
+
+    return () => clearInterval(interval);
+  }, [navigate]);
+
 
   const logout = () => {
     localStorage.clear();
     navigate("/");
   };
+  
 
   const isActive = (path) =>
     location.pathname === path ? "active" : "";
