@@ -12,6 +12,8 @@ export default function Career() {
     phone: "",
     resume: null,
   });
+  const [statusMessage, setStatusMessage] = useState("");
+  const [statusType, setStatusType] = useState(""); // "success" or "error"
 
   const token = localStorage.getItem("token");
   const role = localStorage.getItem("role"); 
@@ -81,12 +83,16 @@ export default function Career() {
         },
       });
 
-      alert(res.data.message || "Application submitted!");
+      // alert(res.data.message || "Application submitted!");
+      setStatusMessage(res.data.message || "Application submitted!");
+      setStatusType("success");
       setShowForm(false);
       setFormData({ name: "", email: "", phone: "", resume: null });
     } catch (err) {
       console.error("❌ Application Error:", err);
-      alert(err.response?.data?.message || "Failed to submit application.");
+      // alert(err.response?.data?.message || "Failed to submit application.");
+      setStatusMessage(err.response?.data?.message || "Failed to submit application.");
+      setStatusType("error");
     }
   };
 
@@ -146,6 +152,20 @@ export default function Career() {
       {showForm && (
         <div className="apply-modal-overlay">
           <div className="apply-modal-content">
+            {statusMessage && (
+              <div
+                style={{
+                  marginBottom: "1rem",
+                  padding: "10px 15px",
+                  borderRadius: "6px",
+                  backgroundColor: statusType === "success" ? "#d4edda" : "#f8d7da",
+                  color: statusType === "success" ? "#155724" : "#721c24",
+                  border: `1px solid ${statusType === "success" ? "#c3e6cb" : "#f5c6cb"}`,
+                }}
+              >
+                {statusMessage}
+              </div>
+            )}
             <h3>Apply for Job</h3>
             <form onSubmit={handleSubmit}>
               <input

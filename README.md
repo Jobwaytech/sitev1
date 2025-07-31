@@ -1,70 +1,129 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# JobBridge – MERN Stack Job Portal
 
-## Available Scripts
+[Live Website 🌐](https://jobbridgein.vercel.app/) 
 
-In the project directory, you can run:
+[Frontend Repo](https://github.com/Vikasvs91/jobbridge.in)
 
-### `npm start`
+JobBridge is a full-stack job portal that connects students with employers. Built using the MERN stack (MongoDB, Express.js, React.js, Node.js), it allows users to register, log in, apply for jobs, and manage roles with secure JWT authentication.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🚀 Features
 
-### `npm test`
+- 👥 **User Authentication (JWT)**
+- 🎓 **Student & Employer Roles**
+- 📝 **Job Posting & Application**
+- 🗃️ **Job Listings with Filters**
+- 📥 **Resume Upload & Storage**
+- 📱 **Responsive Mobile UI**
+- 🔒 **Secure Backend with Middleware**
+- ☁️ **Frontend Deployed on Vercel**
+- 🌐 **MongoDB Database Connection (Cloud)**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🛠 Tech Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Frontend (React):
+- React.js
+- React Router
+- Axios
+- TailwindCSS or CSS Modules
+- Context API (optional)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Backend (Node.js + Express):
+- Node.js
+- Express.js
+- MongoDB (with Mongoose)
+- Multer (for file uploads)
+- dotenv (env configuration)
+- bcryptjs (for hashing passwords)
+- jsonwebtoken (for auth)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 🔧 Folder Structure
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+jobbridge/
+├── client/         # Frontend - React
+└── server/         # Backend - Node/Express
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+````
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## 📦 Installation Instructions
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Step 1: Clone the Repo
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+git clone https://github.com/Vikasvs91/jobbridge.in.git
+cd jobbridge
+````
 
-### Code Splitting
+### Step 2: Setup Backend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+cd server
+npm install
+touch .env
+```
 
-### Analyzing the Bundle Size
+`.env` file example:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```env
+MONGO_URI=your_mongodb_cloud_uri
+JWT_SECRET=your_jwt_secret
+```
 
-### Making a Progressive Web App
+```bash
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Step 3: Setup Frontend
 
-### Advanced Configuration
+```bash
+cd ../client
+npm install
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## 🌐 Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Frontend: [Vercel](https://vercel.com/)
 
-### `npm run build` fails to minify
+### Backend: [Render](https://render.com/) or [Railway](https://railway.app/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## 📷 Screenshots
+
+*Add project screenshots or a demo video link here.*
+
+---
+
+## 👨‍💻 Author
+
+* **Basavi Vikas**
+
+  * [LinkedIn](https://www.linkedin.com/in/vikas-vb)
+  * [Portfolio](https://vikasvs91.github.io/Portfolio/portfolio)
+  * [Email](mailto:vikasbasavi@gmail.com)
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+```
+
+---
+
+If you want, I can also create a shorter or Telugu version. Let me know if you'd like to include screenshots or a video walkthrough too.
+```
