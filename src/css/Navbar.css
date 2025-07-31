@@ -1,0 +1,116 @@
+/* 🌙 Navbar */
+.navbar {
+  background: rgba(31, 41, 55, 0.9);
+  backdrop-filter: blur(6px);
+  padding: 12px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+/* 🔧 Container */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* 🖋 Logo */
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* 🧭 Links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-links a,
+.nav-links .scroll-link {
+  color: #d1d5db;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+
+.nav-links a:hover,
+.nav-links .scroll-link:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.nav-links .active {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+/* 🔓 Logout */
+.logout-btn {
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.logout-btn:hover {
+  background-color: #dc2626;
+  transform: translateY(-1px);
+}
+
+/* 🍔 Hamburger */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    flex-direction: column;
+    gap: 14px;
+    background: rgba(31, 41, 55, 0.98);
+    padding: 20px 25px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+  }
+
+  .nav-links.open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
