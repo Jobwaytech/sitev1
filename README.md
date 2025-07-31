@@ -2,6 +2,7 @@
 # JobBridge – MERN Stack Job Portal
 
 [Live Website 🌐](https://jobbridgein.vercel.app/) 
+
 [Frontend Repo](https://github.com/Vikasvs91/jobbridge.in)
 
 JobBridge is a full-stack job portal that connects students with employers. Built using the MERN stack (MongoDB, Express.js, React.js, Node.js), it allows users to register, log in, apply for jobs, and manage roles with secure JWT authentication.
