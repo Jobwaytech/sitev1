@@ -80,7 +80,7 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <h1 className="logo">JobBridge</h1>
+        <h1 className="logo">Job Way Tech</h1>
 
         <button
           className="hamburger"
