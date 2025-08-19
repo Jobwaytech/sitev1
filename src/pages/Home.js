@@ -33,8 +33,8 @@ export default function Home() {
       {/* ✅ Hero Section */}
       <section className="hero-section">
         <div className="hero-content">
-          <h1 className="hero-title">Find Your Dream Job with JobBridge</h1>
-          <p className="hero-subtitle">JobBridge connects students and employers seamlessly. Start your career journey today!</p>
+          <h1 className="hero-title">Find Your Dream Job with Job Way Tech</h1>
+          <p className="hero-subtitle">Job Way Tech connects students and employers seamlessly. Start your career journey today!</p>
           <div className="hero-buttons">
             {!token ? (
               <>
@@ -67,7 +67,7 @@ export default function Home() {
       </section>
       {/* ✅ Features Section */}
       <section className="features-section">
-        <h2 className="section-title">Why Choose <span className="highlight">JobBridge</span>?</h2>
+        <h2 className="section-title">Why Choose <span className="highlight">Job Way Tech</span>?</h2>
         <p className="section-text">
           Discover the easiest way to search, apply, and manage job opportunities. JobBridge brings a seamless experience for both job seekers and employers.
         </p>
@@ -89,9 +89,9 @@ export default function Home() {
       {/* ✅ About Section */}
       <section id="about" className="about-section">
         <div className="about-container">
-          <h2 className="section-title">About JobBridge</h2>
+          <h2 className="section-title">About Job Way Tech</h2>
           <p className="about-intro">
-            At <strong>JobBridge</strong>, we believe in building a strong connection between students and employers.
+            At <strong>Job Way Tech</strong>, we believe in building a strong connection between students and employers.
             Our platform is designed to simplify the recruitment process while giving students a fair chance to showcase their talent.
           </p>
           <div className="about-grid">
@@ -161,7 +161,7 @@ export default function Home() {
               <ul className="contact-list">
                 <li>
                   <span className="icon">📧</span>
-                  <a href="mailto:support@jobbridge.com">support@jobbridge.com</a>
+                  <a href="mailto:support@jobwaytech.com">support@jobwaytech.com</a>
                 </li>
                 <li>
                   <span className="icon">📞</span>
@@ -175,9 +175,9 @@ export default function Home() {
               {/* Social Icons */}
               <div className="social-icons">
                 <a href="https://facebook.com" target="_blank" rel="noreferrer"><i className="fab fa-facebook-f"></i></a>
-                <a href="https://instagram.com" target="_blank" rel="noreferrer"><i className="fab fa-instagram"></i></a>
-                <a href="https://youtube.com" target="_blank" rel="noreferrer"><i className="fab fa-youtube"></i></a>
-                <a href="https://linkedin.com" target="_blank" rel="noreferrer"><i className="fab fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com/jobwaytech" target="_blank" rel="noreferrer"><i className="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@JOBWAYTECH" target="_blank" rel="noreferrer"><i className="fab fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/company/jobwaytech" target="_blank" rel="noreferrer"><i className="fab fa-linkedin-in"></i></a>
                 <a href="https://twitter.com" target="_blank" rel="noreferrer"><i className="fab fa-twitter"></i></a>
               </div>
             </div>
@@ -196,7 +196,7 @@ export default function Home() {
           <div className="contact-right">
             <div className="map-container">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3878.6314297454956!2d78.50163773988955!3d13.558187001688585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1753253565276!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3878.6145984575537!2d78.49996307513302!3d13.559217986812843!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb267f647576345%3A0xd9359732aee085b0!2sJob%20Way%20Tech%20Consultant%20%26%20Training!5e0!3m2!1sen!2sin!4v1755585612692!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 allowFullScreen=""
@@ -219,7 +219,7 @@ export default function Home() {
           <div className="footer-left">
             <p>© {new Date().getFullYear()} <strong>JobBridge</strong>. All rights reserved.</p>
             <p>
-              <a href="mailto:support@jobbridge.com">📧 support@jobbridge.com</a> |  
+              <a href="mailto:support@jobwaytech.com">📧 support@jobwaytech.com</a> |  
               <a href="tel:+919701657953">+91 97016 57953</a>
             </p>
           </div>
@@ -229,16 +229,16 @@ export default function Home() {
             <a href="https://facebook.com" target="_blank" rel="noreferrer" className="footer-icon" aria-label="Facebook">
               <i className="fab fa-facebook-f"></i>
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noreferrer" className="footer-icon" aria-label="Instagram">
+            <a href="https://www.instagram.com/jobwaytech/" target="_blank" rel="noreferrer" className="footer-icon" aria-label="Instagram">
               <i className="fab fa-instagram"></i>
             </a>
-            <a href="https://youtube.com" target="_blank" rel="noreferrer" className="footer-icon" aria-label="YouTube">
+            <a href="https://www.youtube.com/@JOBWAYTECH" target="_blank" rel="noreferrer" className="footer-icon" aria-label="YouTube">
               <i className="fab fa-youtube"></i>
             </a>
             <a href="https://twitter.com" target="_blank" rel="noreferrer" className="footer-icon" aria-label="Twitter">
               <i className="fab fa-twitter"></i>
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="footer-icon" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/company/jobwaytech/" target="_blank" rel="noreferrer" className="footer-icon" aria-label="LinkedIn">
               <i className="fab fa-linkedin-in"></i>
             </a>
           </div>
