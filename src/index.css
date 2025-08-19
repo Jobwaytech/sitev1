@@ -171,6 +171,7 @@ body {
         .btn-btn-outline::before {
             content: '';
             position: absolute;
+            text-decoration: none;
             top: 0;
             left: -100%;
             width: 100%;
@@ -182,6 +183,7 @@ body {
         .btn-btn-primary:hover::before,
         .btn-btn-outline:hover::before {
             left: 100%;
+            text-decoration: none;
         }
 
         .btn-btn-primary {
@@ -194,6 +196,7 @@ body {
         .btn-btn-primary:hover {
             transform: translateY(-5px) scale(1.05);
             box-shadow: 0 20px 40px rgba(102, 126, 234, 0.6);
+            text-decoration: none;
             background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
         }
 
@@ -208,6 +211,7 @@ body {
         .btn-btn-outline:hover {
             background: rgba(255, 255, 255, 0.95);
             color: #667eea;
+            text-decoration: none;
             transform: translateY(-5px) scale(1.05);
             box-shadow: 0 15px 35px rgba(255, 255, 255, 0.3);
             border-color: transparent;
@@ -395,6 +399,7 @@ body {
             background: rgba(16, 185, 129, 0.9);
             color: white;
         }
+
 .hero-section h1 {
   font-size: 3rem;
   font-weight: 800;
@@ -450,51 +455,6 @@ body {
   }
 }
 
-.btn-btn-primary,
-.btn-btn-outline {
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.4s ease;
-  text-align: center;
-  min-width: 150px;
-  text-decoration: none;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* 🌈 Gradient Primary Button */
-.btn-btn-primary {
-  background-image: linear-gradient(135deg, #1e90ff, #007bff);
-  color: #fff;
-  border: none;
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-btn-primary:hover {
-  background-image: linear-gradient(135deg, #0056b3, #0047a0);
-  transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(0, 91, 187, 0.4);
-}
-
-/* 🟦 Gradient Outline Button with Invert on Hover */
-.btn-btn-outline {
-  background-color: #fff;
-  border: 2px solid #007bff;
-  color: #007bff;
-  background-image: none;
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-btn-outline:hover {
-  background-image: linear-gradient(135deg, #007bff, #0056b3);
-  color: #fff;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(0, 123, 255, 0.3);
-}
 
 
 /* Gradient animation */
@@ -531,11 +491,7 @@ body {
     gap: 1rem;
     align-items: center;
   }
-  .btn-btn-primary,
-  .btn-btn-outline {
-    width: 100%;
-    max-width: 280px;
-  }
+
 
   .btn {
     width: 100%;
