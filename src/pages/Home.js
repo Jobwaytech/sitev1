@@ -69,7 +69,7 @@ export default function Home() {
       <section className="features-section">
         <h2 className="section-title">Why Choose <span className="highlight">Job Way Tech</span>?</h2>
         <p className="section-text">
-          Discover the easiest way to search, apply, and manage job opportunities. JobBridge brings a seamless experience for both job seekers and employers.
+          Discover the easiest way to search, apply, and manage job opportunities. Job Way Tech brings a seamless experience for both job seekers and employers.
         </p>
         <div className="features-grid">
           <div className="feature-card">
@@ -104,7 +104,7 @@ export default function Home() {
             <div className="about-card">
               <h3>🌱 Why We Started</h3>
               <p>
-                We noticed many students struggle to find genuine opportunities. JobBridge was created to bridge that gap with trusted job postings and real-time updates.
+                We noticed many students struggle to find genuine opportunities. Job Way Tech was created to bridge that gap with trusted job postings and real-time updates.
               </p>
             </div>
             <div className="about-card">
@@ -128,7 +128,7 @@ export default function Home() {
       {/* ✅ Services Section */}
       <section id="services" className="services-section">
         <h2 className="section-title">🚀 Our Premium Services</h2>
-        <p className="section-text">We go beyond just job listings! Here’s what makes JobBridge stand out:</p>
+        <p className="section-text">We go beyond just job listings! Here’s what makes Job Way Tech stand out:</p>
         <div className="services-grid">
           <div className="service-card">
             <h3>🧭 Smart Job Matching</h3>
@@ -207,7 +207,7 @@ export default function Home() {
             </div>
             <div className="map-address">
               <h3>📍 Our Office</h3>
-              <p>Madanapalle, Andhra Pradesh, India</p>
+              <p>Indira Nagar, Madanapalle, Andhra Pradesh 517325</p>
             </div>
           </div>
         </div>
@@ -217,7 +217,7 @@ export default function Home() {
         <div className="footer-container">
           {/* Left content */}
           <div className="footer-left">
-            <p>© {new Date().getFullYear()} <strong>JobBridge</strong>. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} <strong>Job Way Tech</strong>. All rights reserved.</p>
             <p>
               <a href="mailto:support@jobwaytech.com">📧 support@jobwaytech.com</a> |  
               <a href="tel:+919701657953">+91 97016 57953</a>
