@@ -1,15 +1,15 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Job Way Tech",
+  "name": "Job Way Tech Consultant & Training",
   "icons": [
     
     {
-      "src": "jobbridge.jpg",
+      "src": "logoJobwaytech.jpg",
       "type": "image/jpg",
       "sizes": "192x192"
     },
     {
-      "src": "ljobbridge.jpg",
+      "src": "logoJobwaytech.jpg",
       "type": "image/jpg",
       "sizes": "512x512"
     }
