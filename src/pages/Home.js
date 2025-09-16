@@ -110,7 +110,7 @@ export default function Home() {
             <div className="about-card">
               <h3>🤝 Who We Serve</h3>
               <p>
-                From ambitious students looking for internships to employers searching for fresh talent, JobBridge is your partner in growth.
+                From ambitious students looking for internships to employers searching for fresh talent, JobWaytech is your partner in growth.
               </p>
             </div>
           </div>
