@@ -69,8 +69,8 @@ export default function Auth() {
     <div className="auth-container">
       <div className="auth-box">
         <img
-          src="/jobbridge.jpg"
-          alt="JobBridge Logo"
+          src="/JOBWAYTechMain.jpg"
+          alt="JOBWAYTechMain Logo"
           className="auth-logo"
         />
         <h2>{isLogin ? "Login" : "Signup"}</h2>
