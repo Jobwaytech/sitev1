@@ -1,129 +1,42 @@
+# hd
 
-# JobBridge – MERN Stack Job Portal
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
 
-[Live Website 🌐](https://www.jobwaytech.com/) 
+## Getting Started
 
-[Frontend Repo](https://github.com/Vikasvs91/jobbridge.in)
-
-Job Way Tech is a full-stack job portal that connects students with employers. Built using the MERN stack (MongoDB, Express.js, React.js, Node.js), it allows users to register, log in, apply for jobs, and manage roles with secure JWT authentication.
-
----
-
-## 🚀 Features
-
-- 👥 **User Authentication (JWT)**
-- 🎓 **Student & Employer Roles**
-- 📝 **Job Posting & Application**
-- 🗃️ **Job Listings with Filters**
-- 📥 **Resume Upload & Storage**
-- 📱 **Responsive Mobile UI**
-- 🔒 **Secure Backend with Middleware**
-- ☁️ **Frontend Deployed on Vercel**
-- 🌐 **MongoDB Database Connection (Cloud)**
-
----
-
-## 🛠 Tech Stack
-
-### Frontend (React):
-- React.js
-- React Router
-- Axios
-- TailwindCSS or CSS Modules
-- Context API (optional)
-
-### Backend (Node.js + Express):
-- Node.js
-- Express.js
-- MongoDB (with Mongoose)
-- Multer (for file uploads)
-- dotenv (env configuration)
-- bcryptjs (for hashing passwords)
-- jsonwebtoken (for auth)
-
----
-
-## 🔧 Folder Structure
-
-```
-
-jobbridge/
-├── client/         # Frontend - React
-└── server/         # Backend - Node/Express
-
-````
-
----
-
-## 📦 Installation Instructions
-
-### Step 1: Clone the Repo
+First, run the development server:
 
 ```bash
-git clone https://github.com/Vikasvs91/jobbridge.in.git
-cd jobbridge
-````
-
-### Step 2: Setup Backend
-
-```bash
-cd server
-npm install
-touch .env
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-`.env` file example:
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-```env
-MONGO_URI=your_mongodb_cloud_uri
-JWT_SECRET=your_jwt_secret
-```
+You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-```bash
-npm start
-```
+[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-### Step 3: Setup Frontend
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
 
-```bash
-cd ../client
-npm install
-npm start
-```
+This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
----
+## Learn More
 
-## 🌐 Deployment
+To learn more about Next.js, take a look at the following resources:
 
-### Frontend: [Vercel](https://vercel.com/)
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
 
-### Backend: [Render](https://render.com/) or [Railway](https://railway.app/)
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
----
+## Deploy on Vercel
 
-## 📷 Screenshots
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-*Add project screenshots or a demo video link here.*
-
----
-
-## 👨‍💻 Author
-
-* **Basavi Vikas**
-
-  * [LinkedIn](https://www.linkedin.com/in/vikas-vb)
-  * [Portfolio](https://vikasvs91.github.io/Portfolio/portfolio)
-  * [Email](mailto:vikasbasavi@gmail.com)
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
-```
-
----
-
-If you want, I can also create a shorter or Telugu version. Let me know if you'd like to include screenshots or a video walkthrough too.
-```
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
