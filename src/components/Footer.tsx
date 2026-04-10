@@ -5,6 +5,32 @@ type Props = {};
 const Footer = (props: Props) => {
   const year = new Date().getFullYear();
 
+  const serviceItems = [
+    "Recruitment Support",
+    "Corporate Hiring",
+    "Interview Preparation",
+    "Placement Assistance",
+  ];
+
+  const companyLinks = [
+    { label: "About Us", href: "#" },
+    { label: "Open Roles", href: "#" },
+    { label: "Success Stories", href: "#" },
+    { label: "Contact Team", href: "#" },
+  ];
+
+  const contactItems = [
+    "+91 99861 94191",
+    "info@jobwaytech.com",
+    "Bangalore, India",
+    "Mon - Sat, 9:00 AM - 7:00 PM",
+  ];
+
+  const policyLinks = [
+    { label: "Refund Policy", href: "/refund_polocy" },
+    { label: "Terms of Service", href: "/terms_and_conditions" },
+  ];
+
   return (
     <footer className="relative overflow-hidden border-t border-slate-200 bg-slate-950 text-slate-200">
       <div className="pointer-events-none absolute inset-0">
@@ -34,7 +60,7 @@ const Footer = (props: Props) => {
               Get Started
             </Link>
             <Link
-              href="#"
+              href="/contact-us"
               className="rounded-xl border border-white/20 px-5 py-2.5 text-sm font-semibold text-slate-100 transition hover:border-cyan-300 hover:text-cyan-200"
             >
               Talk to Us
@@ -58,10 +84,9 @@ const Footer = (props: Props) => {
               Services
             </p>
             <ul className="mt-3 space-y-2 text-sm text-slate-300">
-              <li>Recruitment Support</li>
-              <li>Corporate Hiring</li>
-              <li>Interview Preparation</li>
-              <li>Placement Assistance</li>
+              {serviceItems.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
             </ul>
           </div>
 
@@ -70,38 +95,16 @@ const Footer = (props: Props) => {
               Company
             </p>
             <ul className="mt-3 space-y-2 text-sm">
-              <li>
-                <Link
-                  href="#"
-                  className="text-slate-300 transition hover:text-cyan-200"
-                >
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  className="text-slate-300 transition hover:text-cyan-200"
-                >
-                  Open Roles
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  className="text-slate-300 transition hover:text-cyan-200"
-                >
-                  Success Stories
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  className="text-slate-300 transition hover:text-cyan-200"
-                >
-                  Contact Team
-                </Link>
-              </li>
+              {companyLinks.map((item) => (
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
+                    className="text-slate-300 transition hover:text-cyan-200"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -110,10 +113,9 @@ const Footer = (props: Props) => {
               Contact
             </p>
             <ul className="mt-3 space-y-2 text-sm text-slate-300">
-              <li>+91 99861 94191</li>
-              <li>info@jobwaytech.com</li>
-              <li>Bangalore, India</li>
-              <li>Mon - Sat, 9:00 AM - 7:00 PM</li>
+              {contactItems.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
             </ul>
           </div>
         </div>
@@ -121,18 +123,15 @@ const Footer = (props: Props) => {
         <div className="mt-10 flex flex-col gap-3 border-t border-white/10 pt-5 text-xs text-slate-400 sm:flex-row sm:items-center sm:justify-between">
           <p>Copyright {year} JobwayTech Consultancy & Training.</p>
           <div className="flex gap-4">
-            <Link
-              href="/refund_polocy"
-              className="transition hover:text-cyan-200"
-            >
-              Refund Policy
-            </Link>
-            <Link
-              href="/terms_and_conditions"
-              className="transition hover:text-cyan-200"
-            >
-              Terms of Service
-            </Link>
+            {policyLinks.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                className="transition hover:text-cyan-200"
+              >
+                {item.label}
+              </Link>
+            ))}
           </div>
         </div>
       </div>
