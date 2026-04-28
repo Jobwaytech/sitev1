@@ -21,17 +21,21 @@ const Header = () => {
   const courses = [
     {
       name: "Recruitment Services",
+      href: "/recruitment-services",
     },
     {
       name: "Candidate Screening",
+      href: "/candidate-screening",
     },
     {
       name: "Corporate Hiring Support",
+      href: "/corporate-hiring-support",
     },
   ];
   const resources = [
     {
       name: "Success Stories",
+      href: "/success-stories",
     },
     {
       name: "Interview Guides",
@@ -42,16 +46,16 @@ const Header = () => {
   ];
   const navLinks = [
     {
-      name: "Candidates",
-    },
-    {
+      href: "/employers",
       name: "Employers",
     },
     {
+      href: "/open-jobs",
       name: "Open Jobs",
     },
     {
       name: "Contact",
+      href: "/contact-us",
     },
   ];
   const loginLabel = "Login Employer / Candidate";
@@ -127,7 +131,7 @@ const Header = () => {
                 {courses.map((course) => (
                   <Link
                     key={course.name}
-                    href="#"
+                    href={course.href || "#"}
                     className="block rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 transition hover:bg-slate-50 hover:text-cyan-700"
                   >
                     {course.name}
@@ -147,34 +151,13 @@ const Header = () => {
                 className="absolute right-3 top-2.5 text-cyan-500"
               />
             </div>
-
-            <div className="relative group">
-              <button className="inline-flex items-center gap-2 px-2 py-2 text-sm font-semibold text-slate-700 transition hover:text-cyan-700">
-                Resources
-                <ChevronDown
-                  size={16}
-                  className="transition-transform duration-300 group-hover:rotate-180"
-                />
-              </button>
-              <div className="invisible absolute left-0 top-full z-20 mt-2 w-52 rounded-2xl border border-slate-200 bg-white p-2 opacity-0 shadow-xl transition-all duration-200 group-hover:visible group-hover:opacity-100">
-                {resources.map((resource) => (
-                  <Link
-                    key={resource.name}
-                    href="#"
-                    className="block rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 transition hover:bg-slate-50 hover:text-cyan-700"
-                  >
-                    {resource.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
           </div>
 
           <nav className="hidden items-center gap-5 lg:flex">
             {navLinks.map((item) => (
               <Link
                 key={item.name}
-                href="#"
+                href={item.href}
                 className="text-sm font-medium text-slate-700 transition hover:text-cyan-700"
               >
                 {item.name}
@@ -231,36 +214,10 @@ const Header = () => {
                   {courses.map((course) => (
                     <Link
                       key={`mobile-${course.name}`}
-                      href="#"
+                      href={course.href || "#"}
                       className="block rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-cyan-700"
                     >
                       {course.name}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            <div className="mb-2">
-              <button
-                onClick={() => setResourcesOpen(!resourcesOpen)}
-                className="flex w-full items-center justify-between rounded-xl bg-slate-100 px-4 py-3 text-sm font-semibold text-slate-800"
-              >
-                Resources
-                <ChevronDown
-                  size={16}
-                  className={`transition-transform ${resourcesOpen ? "rotate-180" : ""}`}
-                />
-              </button>
-              {resourcesOpen && (
-                <div className="mt-2 space-y-1 px-1">
-                  {resources.map((resource) => (
-                    <Link
-                      key={`mobile-${resource.name}`}
-                      href="#"
-                      className="block rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-cyan-700"
-                    >
-                      {resource.name}
                     </Link>
                   ))}
                 </div>

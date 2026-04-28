@@ -3,10 +3,11 @@ import Header from "@/components/Headder";
 import ScrollToTop from "@/components/ScrollToTop";
 import Head from "next/head";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
   const GRID_FADE_DURATION_MS = 280;
+  const flowSectionRef = useRef<HTMLDivElement | null>(null);
 
   const categories = [
     "All",
@@ -78,6 +79,8 @@ export default function Home() {
       location: "Bengaluru",
       initials: "RS",
       accent: "from-cyan-500 to-blue-600",
+      photo:
+        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80",
     },
     {
       name: "Arjun Mehta",
@@ -87,6 +90,8 @@ export default function Home() {
       location: "Hyderabad",
       initials: "AM",
       accent: "from-emerald-500 to-teal-600",
+      photo:
+        "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&w=400&q=80",
     },
     {
       name: "Neha Verma",
@@ -96,6 +101,8 @@ export default function Home() {
       location: "Pune",
       initials: "NV",
       accent: "from-orange-500 to-rose-500",
+      photo:
+        "https://images.unsplash.com/photo-1545996124-1b4c0d0e1f3f?auto=format&fit=crop&w=400&q=80",
     },
     {
       name: "Karan Iyer",
@@ -105,6 +112,8 @@ export default function Home() {
       location: "Chennai",
       initials: "KI",
       accent: "from-indigo-500 to-sky-600",
+      photo:
+        "https://images.unsplash.com/photo-1531123414780-f9f3f9f1b9a6?auto=format&fit=crop&w=400&q=80",
     },
     {
       name: "Priya Nair",
@@ -114,6 +123,8 @@ export default function Home() {
       location: "Kochi",
       initials: "PN",
       accent: "from-fuchsia-500 to-pink-500",
+      photo:
+        "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80",
     },
     {
       name: "Rahul Dev",
@@ -123,6 +134,8 @@ export default function Home() {
       location: "Mumbai",
       initials: "RD",
       accent: "from-amber-500 to-orange-600",
+      photo:
+        "https://images.unsplash.com/photo-1545996124-1b4c0d0e1f3f?auto=format&fit=crop&w=400&q=80",
     },
   ];
 
@@ -196,6 +209,7 @@ export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [isGridFading, setIsGridFading] = useState(false);
   const [currentGalleryIndex, setCurrentGalleryIndex] = useState(0);
+  const [isFlowVisible, setIsFlowVisible] = useState(false);
 
   const filteredCourseCards = courseCards.filter(
     (card) =>
@@ -231,6 +245,25 @@ export default function Home() {
 
     return () => clearInterval(slideshowTimer);
   }, [companyGallery.length]);
+
+  useEffect(() => {
+    const flowNode = flowSectionRef.current;
+    if (!flowNode) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsFlowVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.25 },
+    );
+
+    observer.observe(flowNode);
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <>
@@ -448,7 +481,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="relative mx-auto w-full   px-4 pb-24 md:px-6 md:pb-28">
+        <section className="relative mx-auto w-full px-4 pb-24 md:px-6 md:pb-28">
           <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-[linear-gradient(145deg,#f8fafc_0%,#eef2ff_42%,#ecfeff_100%)] p-5 shadow-[0_35px_100px_-55px_rgba(15,23,42,0.55)] md:p-8">
             <div className="pointer-events-none absolute -left-20 -top-20 h-56 w-56 rounded-full bg-cyan-300/35 blur-3xl" />
             <div className="pointer-events-none absolute -bottom-20 -right-20 h-56 w-56 rounded-full bg-emerald-300/30 blur-3xl" />
@@ -456,71 +489,319 @@ export default function Home() {
             <div className="relative flex flex-col gap-4 border-b border-slate-200/80 pb-6 md:flex-row md:items-end md:justify-between md:pb-7">
               <div>
                 <p className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-700">
-                  Core Team
+                  Core Team Flow
                 </p>
                 <h2 className="mt-2 text-2xl font-black text-slate-900 sm:text-3xl">
-                  Employee Profiles & Roles
+                  Employee Journey in Sequence
                 </h2>
                 <p className="mt-2 max-w-2xl text-sm text-slate-600 sm:text-base">
-                  Meet specialists who drive recruitment, mentoring, and
-                  placement outcomes for students and companies.
+                  The team is shown as a guided flow so the support process is
+                  easy to follow from talent sourcing to employer partnerships.
                 </p>
               </div>
               <div className="inline-flex w-fit items-center gap-2 rounded-full border border-cyan-200 bg-white/80 px-4 py-2 text-xs font-semibold text-cyan-800 backdrop-blur">
                 <span className="h-2 w-2 rounded-full bg-emerald-500" />
-                Available for consultation
+                Sequential hiring support
               </div>
             </div>
 
-            <div className="relative mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {employeeProfiles.map((profile, index) => (
-                <article
-                  key={profile.name}
-                  className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white/95 p-4 shadow-sm backdrop-blur transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl"
-                >
-                  <div className="flex items-start justify-between gap-3">
-                    <div className="flex items-center gap-3">
-                      <div
-                        className={`flex h-12 w-12 items-center justify-center rounded-xl bg-linear-to-br ${profile.accent} text-sm font-extrabold text-white shadow-lg`}
-                      >
-                        {profile.initials}
+            <div ref={flowSectionRef} className="relative mt-6">
+              <div className="absolute left-6 top-1.5 hidden h-[calc(100%-12px)] w-px bg-linear-to-b from-cyan-300 via-slate-300 to-emerald-300 lg:block" />
+
+              {/* Flow chart: MD -> Asst MD (Branch Head, Incharge), Placement Head -> Trainer */}
+              <div
+                className={`mb-6 w-full transition-all duration-700 ease-out motion-reduce:transition-none 
+                   
+                `}
+              >
+                <div className="mx-auto   rounded-4xl border border-white/70 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.98),rgba(236,254,255,0.9)_42%,rgba(224,231,255,0.75))] p-4 shadow-[0_35px_100px_-55px_rgba(8,145,178,0.45)] sm:p-6">
+                  <div className="relative overflow-hidden rounded-3xl border border-slate-200/80 bg-white/70 px-4 py-6 shadow-inner backdrop-blur md:px-6 md:py-8">
+                    <div className="relative flex flex-col items-center gap-8 md:gap-10">
+                      <div className="flex justify-center">
+                        <div
+                          className={`group flex w-full max-w-xs flex-col items-center rounded-3xl border border-slate-200 bg-white px-5 py-5 shadow-lg shadow-cyan-100/70 transition-all duration-700 hover:-translate-y-1 motion-reduce:transition-none  `}
+                        >
+                          <div className="rounded-full bg-linear-to-br from-slate-900 via-slate-800 to-cyan-700 p-1.5 shadow-xl shadow-cyan-200/40">
+                            <img
+                              src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80"
+                              alt="MD"
+                              className="h-20 w-20 rounded-full border-2 border-white object-cover sm:h-24 sm:w-24"
+                            />
+                          </div>
+                          <span className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-cyan-50 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-cyan-800">
+                            <svg
+                              viewBox="0 0 16 16"
+                              className="h-3.5 w-3.5"
+                              aria-hidden
+                            >
+                              <path
+                                d="M8 1.5l1.5 3.2 3.5.5-2.5 2.4.6 3.4L8 9.8 4.9 11l.6-3.4-2.5-2.4 3.5-.5L8 1.5z"
+                                fill="currentColor"
+                              />
+                            </svg>
+                            MD
+                          </span>
+                          <h3 className="mt-3 text-lg font-black text-slate-900">
+                            Managing Director
+                          </h3>
+                          <p className="mt-1 text-center text-sm text-slate-600">
+                            Leadership and strategic direction
+                          </p>
+                        </div>
                       </div>
-                      <div>
-                        <h3 className="text-base font-extrabold text-slate-900">
-                          {profile.name}
-                        </h3>
-                        <p className="text-[11px] font-semibold uppercase tracking-widest text-slate-500">
-                          Team Member #{index + 1}
-                        </p>
+
+                      <div className="flex flex-col items-center gap-4 md:gap-8">
+                        <div className="space-y-4 md:space-y-5">
+                          <article
+                            className={`relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-4 shadow-md shadow-cyan-100/50 transition-all duration-700 md:p-5 motion-reduce:transition-none  `}
+                          >
+                            <div className="absolute inset-x-0 top-0 h-1 bg-linear-to-r from-cyan-500 to-blue-600" />
+                            <div className="flex items-center gap-4">
+                              <img
+                                src={employeeProfiles[0].photo}
+                                alt={employeeProfiles[0].name}
+                                className="h-16 w-16 rounded-full border-4 border-white object-cover shadow-lg"
+                              />
+                              <div>
+                                <span className="inline-flex items-center gap-1 rounded-full bg-cyan-50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-cyan-800">
+                                  <svg
+                                    viewBox="0 0 16 16"
+                                    className="h-3 w-3"
+                                    aria-hidden
+                                  >
+                                    <path
+                                      d="M8 1.5l1.5 3.2 3.5.5-2.5 2.4.6 3.4L8 9.8 4.9 11l.6-3.4-2.5-2.4 3.5-.5L8 1.5z"
+                                      fill="currentColor"
+                                    />
+                                  </svg>
+                                  Asst MD
+                                </span>
+                                <h4 className="mt-2 text-base font-extrabold text-slate-900">
+                                  {employeeProfiles[0].name}
+                                </h4>
+                                <p className="text-sm text-slate-600">
+                                  {employeeProfiles[0].role}
+                                </p>
+                              </div>
+                            </div>
+                          </article>
+                          <div className="pl-5 sm:pl-6 md:pl-8">
+                            <div className="mb-4 hidden h-6 w-px bg-linear-to-b from-cyan-400 via-blue-300 to-transparent md:block" />
+                            <div className="grid gap-4 sm:grid-cols-2 md:gap-6">
+                              <article
+                                className={`relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-4 shadow-md shadow-orange-100/50 transition-all duration-700 md:p-5 motion-reduce:transition-none  `}
+                              >
+                                <div className="absolute inset-x-0 top-0 h-1 bg-linear-to-r from-orange-500 to-rose-500" />
+                                <div className="flex items-center gap-4">
+                                  <img
+                                    src={employeeProfiles[2].photo}
+                                    alt={employeeProfiles[2].name}
+                                    className="h-14 w-14 rounded-full border-4 border-white object-cover shadow-lg"
+                                  />
+                                  <div>
+                                    <span className="inline-flex items-center gap-1 rounded-full bg-orange-50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-orange-800">
+                                      <svg
+                                        viewBox="0 0 16 16"
+                                        className="h-3 w-3"
+                                        aria-hidden
+                                      >
+                                        <path
+                                          d="M8 1.5l1.5 3.2 3.5.5-2.5 2.4.6 3.4L8 9.8 4.9 11l.6-3.4-2.5-2.4 3.5-.5L8 1.5z"
+                                          fill="currentColor"
+                                        />
+                                      </svg>
+                                      Branch Head
+                                    </span>
+                                    <h4 className="mt-2 text-base font-extrabold text-slate-900">
+                                      {employeeProfiles[2].name}
+                                    </h4>
+                                    <p className="text-sm text-slate-600">
+                                      {employeeProfiles[2].role}
+                                    </p>
+                                  </div>
+                                </div>
+                              </article>
+                              <article
+                                className={`relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-4 shadow-md shadow-amber-100/50 transition-all duration-700 md:p-5 motion-reduce:transition-none  `}
+                              >
+                                <div className="absolute inset-x-0 top-0 h-1 bg-linear-to-r from-amber-500 to-orange-600" />
+                                <div className="flex items-center gap-4">
+                                  <img
+                                    src={employeeProfiles[5].photo}
+                                    alt={employeeProfiles[5].name}
+                                    className="h-14 w-14 rounded-full border-4 border-white object-cover shadow-lg"
+                                  />
+                                  <div>
+                                    <span className="inline-flex items-center gap-1 rounded-full bg-amber-50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-amber-800">
+                                      <svg
+                                        viewBox="0 0 16 16"
+                                        className="h-3 w-3"
+                                        aria-hidden
+                                      >
+                                        <path
+                                          d="M8 1.5l1.5 3.2 3.5.5-2.5 2.4.6 3.4L8 9.8 4.9 11l.6-3.4-2.5-2.4 3.5-.5L8 1.5z"
+                                          fill="currentColor"
+                                        />
+                                      </svg>
+                                      Incharge
+                                    </span>
+                                    <h4 className="mt-2 text-base font-extrabold text-slate-900">
+                                      {employeeProfiles[5].name}
+                                    </h4>
+                                    <p className="text-sm text-slate-600">
+                                      {employeeProfiles[5].role}
+                                    </p>
+                                  </div>
+                                </div>
+                              </article>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="space-y-4 md:space-y-5">
+                          <article
+                            className={`relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-4 shadow-md shadow-emerald-100/50 transition-all duration-700 md:p-5 motion-reduce:transition-none  `}
+                          >
+                            <div className="absolute inset-x-0 top-0 h-1 bg-linear-to-r from-emerald-500 to-teal-600" />
+                            <div className="flex items-center gap-4">
+                              <img
+                                src={employeeProfiles[3].photo}
+                                alt={employeeProfiles[3].name}
+                                className="h-16 w-16 rounded-full border-4 border-white object-cover shadow-lg"
+                              />
+                              <div>
+                                <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-emerald-800">
+                                  <svg
+                                    viewBox="0 0 16 16"
+                                    className="h-3 w-3"
+                                    aria-hidden
+                                  >
+                                    <path
+                                      d="M8 1.5l1.5 3.2 3.5.5-2.5 2.4.6 3.4L8 9.8 4.9 11l.6-3.4-2.5-2.4 3.5-.5L8 1.5z"
+                                      fill="currentColor"
+                                    />
+                                  </svg>
+                                  Placement Head
+                                </span>
+                                <h4 className="mt-2 text-base font-extrabold text-slate-900">
+                                  {employeeProfiles[3].name}
+                                </h4>
+                                <p className="text-sm text-slate-600">
+                                  {employeeProfiles[3].role}
+                                </p>
+                              </div>
+                            </div>
+                          </article>
+
+                          <div className="pl-5 sm:pl-6 md:pl-8">
+                            <div className="mb-4 hidden h-6 w-px bg-linear-to-b from-emerald-400 via-cyan-300 to-transparent md:block" />
+                            <div className="grid gap-4 md:gap-6">
+                              <article
+                                className={`relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-4 shadow-md shadow-teal-100/50 transition-all duration-700 md:p-5 motion-reduce:transition-none  `}
+                              >
+                                <div className="absolute inset-x-0 top-0 h-1 bg-linear-to-r from-teal-500 to-cyan-600" />
+                                <div className="flex items-center gap-4">
+                                  <img
+                                    src={employeeProfiles[1].photo}
+                                    alt={employeeProfiles[1].name}
+                                    className="h-14 w-14 rounded-full border-4 border-white object-cover shadow-lg"
+                                  />
+                                  <div>
+                                    <span className="inline-flex items-center gap-1 rounded-full bg-teal-50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-teal-800">
+                                      <svg
+                                        viewBox="0 0 16 16"
+                                        className="h-3 w-3"
+                                        aria-hidden
+                                      >
+                                        <path
+                                          d="M8 1.5l1.5 3.2 3.5.5-2.5 2.4.6 3.4L8 9.8 4.9 11l.6-3.4-2.5-2.4 3.5-.5L8 1.5z"
+                                          fill="currentColor"
+                                        />
+                                      </svg>
+                                      Trainer
+                                    </span>
+                                    <h4 className="mt-2 text-base font-extrabold text-slate-900">
+                                      {employeeProfiles[1].name}
+                                    </h4>
+                                    <p className="text-sm text-slate-600">
+                                      {employeeProfiles[1].role}
+                                    </p>
+                                  </div>
+                                </div>
+                              </article>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                    {/* <span className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.08em] text-slate-700">
-                      {profile.experience}
-                    </span> */}
                   </div>
+                </div>
+              </div>
 
-                  <p className="mt-4 rounded-xl bg-slate-900 px-3 py-2 text-xs font-semibold text-cyan-100">
-                    {profile.role}
-                  </p>
+              {/* <div className="space-y-4 lg:space-y-5">
+                {employeeProfiles.map((profile, index) => (
+                  <article
+                    key={profile.name}
+                    className="relative rounded-2xl border border-slate-200 bg-white/95 p-4 shadow-sm backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl md:p-5 lg:pl-20"
+                  >
+                    <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+                      <div className="flex items-start gap-4">
+                        <div className="relative flex shrink-0 flex-col items-center">
+                          <div
+                            className={`flex h-12 w-12 items-center justify-center rounded-full bg-linear-to-br ${profile.accent} text-sm font-extrabold text-white shadow-lg ring-4 ring-white`}
+                          >
+                            {String(index + 1).padStart(2, "0")}
+                          </div>
+                          {index !== employeeProfiles.length - 1 && (
+                            <div className="mt-2 hidden h-full w-px bg-slate-200 lg:block" />
+                          )}
+                        </div>
 
-                  <div className="mt-4 space-y-2 text-xs text-slate-700">
-                    <p className="rounded-lg border border-slate-200 bg-slate-50/80 px-3 py-2">
-                      Focus Area:{" "}
-                      <span className="font-bold">{profile.focusArea}</span>
-                    </p>
-                    <p className="rounded-lg border border-slate-200 bg-slate-50/80 px-3 py-2">
-                      Location:{" "}
-                      <span className="font-bold">{profile.location}</span>
-                    </p>
-                  </div>
+                        <div>
+                          <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
+                            Step {index + 1}
+                          </p>
+                          <h3 className="mt-1 text-lg font-extrabold text-slate-900">
+                            {profile.name}
+                          </h3>
+                          <p className="mt-1 text-sm font-semibold text-cyan-700">
+                            {profile.role}
+                          </p>
+                        </div>
+                      </div>
 
-                  <div className="mt-4 flex items-center justify-between border-t border-slate-200 pt-3">
-                    <span className="text-[11px] font-semibold text-cyan-700">
-                      Verified Expert
-                    </span>
-                  </div>
-                </article>
-              ))}
+                      <div className="flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-600">
+                        <span className="h-2 w-2 rounded-full bg-emerald-500" />
+                        Verified Expert
+                      </div>
+                    </div>
+
+                    <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                      <p className="rounded-lg border border-slate-200 bg-slate-50/80 px-3 py-2 text-xs text-slate-700">
+                        Focus Area:{" "}
+                        <span className="font-bold">{profile.focusArea}</span>
+                      </p>
+                      <p className="rounded-lg border border-slate-200 bg-slate-50/80 px-3 py-2 text-xs text-slate-700">
+                        Location:{" "}
+                        <span className="font-bold">{profile.location}</span>
+                      </p>
+                    </div>
+
+                    <div className="mt-4 flex flex-wrap items-center gap-2 border-t border-slate-200 pt-4 text-xs font-semibold text-slate-500">
+                      <span className="inline-flex items-center rounded-full bg-slate-900 px-3 py-1 text-cyan-100">
+                        Flow node {index + 1}
+                      </span>
+                      <span>
+                        {index === 0
+                          ? "Starts the recruitment chain"
+                          : index === employeeProfiles.length - 1
+                            ? "Closes the placement loop"
+                            : "Hands off to the next specialist"}
+                      </span>
+                    </div>
+                  </article>
+                ))}
+              </div> */}
             </div>
           </div>
         </section>
